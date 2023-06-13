@@ -1,0 +1,21 @@
+<form id="login-form">
+    <span id="switch" tabindex="0"></span>
+    <span id="notice">username may only contain 4-24 alphanumeric characters and/or dashes (-), underscores (_), or periods (.)</span>
+    <input type="text"
+           name="username"
+           required
+           minlength="4"
+           maxlength="24"
+           pattern="[0-9A-Za-z-_.]+"
+           placeholder="username">
+    <input type="password"
+           name="password"
+           required
+           maxlength="300"
+           placeholder="password">
+    <input type="email"
+           name="email"
+           placeholder="email@example.com">
+    <input type="submit">
+    <div id="form-loading-overlay"><span class="loader"></span></div>
+</form>

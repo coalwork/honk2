@@ -1,0 +1,58 @@
+#delete-account {
+    --normal: var(--bg1);
+    --invert: var(--error);
+}
+
+#modal-overlay {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay);
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity var(--trans), visibility 0s var(--trans);
+}
+
+#modal-overlay.enabled {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--trans), visibility 0s;
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin: auto;
+    padding: 1rem;
+    background-color: var(--bg1);
+
+    --normal: var(--bg1);
+    --invert: var(--text);
+}
+
+#modal * {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+#modal p {
+    text-align: center;
+    margin: 0;
+}
+
+#modal input {
+    text-align: center;
+    width: calc(var(--placeholder-length) * 1ch);
+    padding: 0.25rem 0.5rem;
+}
+
+#modal button {
+    --invert: var(--error);
+}

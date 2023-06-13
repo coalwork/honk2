@@ -1,0 +1,134 @@
+@import url(loader.css);
+
+input#logout {
+    display: none;
+}
+
+#login, #logout {
+    position: relative;
+}
+
+#login-form {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--bg2);
+    padding: 1rem;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: min-content;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--trans), visibility 0s var(--trans);
+
+    --info: attr(data-info);
+}
+
+#login:focus-within #login-form {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--trans), visibility 0s;
+}
+
+#login-form > * {
+    outline: none;
+}
+
+#login-form #switch {
+    color: var(--text);
+    opacity: 0.5;
+    transition: opacity var(--trans);
+}
+
+#login-form #switch:is(:focus, :hover) {
+    opacity: 1;
+}
+
+#login-form #notice {
+    color: var(--text);
+    display: block;
+}
+
+#login-form[data-is-register] #notice {
+    color: var(--text);
+    display: none;
+}
+
+#login-form input {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    width: 32ch;
+    border: none;
+    background-color: var(--bg2);
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
+    opacity: 0.5;
+    transition: opacity var(--trans);
+}
+
+#login-form input:focus {
+    opacity: 1;
+}
+
+#login-form:last-child::after {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--error);
+}
+
+#login-form input:not(:placeholder-shown, [type=submit]) {
+    opacity: 1;
+}
+
+#login-form input[type=email] {
+    display: block;
+}
+
+#login-form[data-is-register] input[type=email] {
+    display: none;
+}
+
+#login-form input[type=submit] {
+    border: 2px solid var(--text);
+    width: min-content;
+    cursor: pointer;
+    transition-property: background-color, color, opacity;
+    transition-duration: var(--trans);
+}
+
+#login-form input[type=submit]:hover {
+    background-color: var(--text);
+    color: var(--bg2);
+    opacity: 1;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#form-loading-overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#form-loading-overlay[data-enabled] {
+    display: grid;
+    background-color: var(--bg2);
+    z-index: 1;
+}
+
+#form-loading-overlay span {
+    margin: auto;
+}

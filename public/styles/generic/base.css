@@ -1,0 +1,113 @@
+@import url(button.css);
+@import url(input.css);
+@import url(form.css);
+
+:root {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--text);
+
+    --text: var(--light-violet);
+    --text2: var(--light-pink);
+    --error: var(--tomato);
+    --bg1: var(--purple);
+    --bg2: var(--dark-purple);
+    --modal-overlay: #00000080;
+    --trans: 75ms;
+
+    --light-pink: #ecb6dcff;
+    --light-violet: #cdb8ecff;
+    --ultra-violet: #6b5ca5ff;
+    --purple: #322b50ff;
+    --dark-purple: #26203cff;
+    --tomato: #ff6347ff;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header.main {
+    background-color: var(--bg2);
+}
+
+main.main {
+    flex: 1;
+    padding: 1rem;
+    background-color: var(--bg1);
+}
+
+nav.main {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navigator, #login, #logout {
+    font-family: inherit;
+    font-size: 1rem;
+    display: block;
+    color: inherit;
+    background-color: var(--bg2);
+    border: none;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition-property: color, background-color;
+    transition-duration: var(--trans);
+}
+
+:is(.navigator, #login, #logout):is(:hover, :focus) {
+    cursor: pointer;
+    color: var(--bg2);
+    background-color: var(--text);
+    outline: none;
+}
+
+#separator {
+    margin-left: auto;
+}
+
+#logout {
+    position: relative;
+}
+
+#logout-loading-overlay {
+    display: none;
+}
+
+#logout-loading-overlay.loading {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg2);
+    z-index: 1;
+}
+
+.loader {
+    margin: auto;
+    z-index: 1;
+}
+
+main.main a {
+    text-decoration: none;
+}
+
+main.main a:hover {
+    text-decoration: underline;
+}
+
+main.main :link {
+    color: var(--text);
+}
+
+main.main :visited {
+    color: var(--text2);
+}

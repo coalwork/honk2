@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" style="visibility: hidden; opacity: 0;">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title @exphbs.view}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/generic/base.css">
+    <link rel="stylesheet" href="/styles/{{title @exphbs.view}}.css">
+    <script defer src="/scripts/generic/form.js"></script>
+    <script src="/scripts/{{title @exphbs.view}}.js"></script>
+</head>
+<body>
+    <header class="main">
+        <nav class="main">
+            {{#each (viewInfo)}}
+            <a class="navigator" href="/{{this.name}}">{{this.name}}</a>
+            {{/each}}
+            <div id="separator"></div>
+            {{#if user}}<a id="profile" class="navigator" href="/profile">profile</a>{{/if}}
+            {{#unless user}}<button id="login"><span>log in{{> form}}</span></button>{{/unless}}
+            {{#if user}}<button id="logout">log out<div id="logout-loading-overlay"><span class="loader"></span></div></button>{{/if}}
+        </nav>
+    </header>
+    <main class="main">{{{body}}}</main>
+    <script>document.documentElement.style = 'visibility: visible; opacity: 1;'</script>
+<noscript><style>html { visibility: visible !important; opacity: 1 !important; }</style></noscript>
+</body>
+</html>

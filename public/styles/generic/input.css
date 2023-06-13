@@ -1,0 +1,19 @@
+.input {
+    border: none;
+    border-bottom: 2px solid var(--invert);
+    outline: none;
+    background-color: var(--normal);
+    color: var(--invert);
+    opacity: 0.5;
+    transition-property: background-color, color, opacity;
+    transition-duration: var(--trans);
+}
+
+.input:enabled:focus {
+    opacity: 1;
+}
+
+.input:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}

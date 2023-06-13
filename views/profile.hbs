@@ -1,0 +1,19 @@
+{{#if notFound}}
+<h1>this user doesn't exist</h1>
+{{/if}}
+{{#unless notFound}}
+<h1>{{foundUser.name}}{{#if isSelf}}<span style="font-size: 1rem; font-weight: normal;"> (your profile)</span>{{/if}}</h1>
+{{#each foundUser}}
+<p data-key="{{@key}}">{{@key}}: {{this}}</p>
+{{/each}}
+{{#if isSelf}}
+<button id="delete-account" class="button">delete account</button>
+<div id="modal-overlay">
+    <div id="modal">
+        <p>are you sure?<br>you can't undelete your account, y'know.</p>
+        <input class="input" autocomplete="off" type="text" name="{{user.name}}" placeholder="type &quot;{{user.name}}&quot; to continue">
+        <button class="button" disabled>confirm</button>
+    </div>
+</div>
+{{/if}}
+{{/unless}}
